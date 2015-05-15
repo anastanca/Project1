@@ -1,5 +1,8 @@
 package com.steps;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.hasItem;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -28,6 +31,10 @@ public class EndUserSteps extends ScenarioSteps {
     @Step
     public void is_the_home_page() {
         loginPage.open();
+    }
+    @Step
+    public void should_see_definition(String definition) {
+        assertThat(loginPage.getMenu(), hasItem(containsString(definition)));
     }
     public void login(String user, String password){
     	enters_u(user);
