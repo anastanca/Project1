@@ -8,7 +8,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 
 import com.pages.LoginPage;
 
-public class EndUserSteps extends ScenarioSteps {
+public class LoginSteps extends ScenarioSteps {
 
     LoginPage loginPage;
 
@@ -16,6 +16,7 @@ public class EndUserSteps extends ScenarioSteps {
     public void enters_u(String word) {
         loginPage.enter_user(word);
     }
+    @Step
     public void enters_p(String word) {
         loginPage.enter_pass(word);
     }
@@ -33,9 +34,6 @@ public class EndUserSteps extends ScenarioSteps {
         loginPage.open();
     }
     @Step
-    public void should_see_definition(String definition) {
-        assertThat(loginPage.getMenu(), hasItem(containsString(definition)));
-    }
     public void login(String user, String password){
     	enters_u(user);
 		enters_p(password);

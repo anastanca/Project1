@@ -23,7 +23,7 @@ public class MyRequestsTest {
     public MyRequestsSteps myRequestsSteps;  
     
     @Steps
-    public EndUserSteps endUserSteps;  
+    public LoginSteps endUserSteps;  
     
     @Test
     public void myRequestsTest() {
