@@ -21,8 +21,7 @@ public class LoginTest {
 
     @Steps
     public EndUserSteps endUser;
-    //@Steps
-    //public VacationSteps stepsvacation;
+
 
     
     @Test
