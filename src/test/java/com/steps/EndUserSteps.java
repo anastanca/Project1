@@ -1,42 +1,45 @@
 package com.steps;
 
-import com.pages.DictionaryPage;
-import net.thucydides.core.annotations.Step;
-import net.thucydides.core.pages.Pages;
-import net.thucydides.core.steps.ScenarioSteps;
-
-import static ch.lambdaj.Lambda.join;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasItem;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.steps.ScenarioSteps;
+
+import com.pages.LoginPage;
 
 public class EndUserSteps extends ScenarioSteps {
 
-    DictionaryPage dictionaryPage;
+    LoginPage loginPage;
 
     @Step
-    public void enters(String keyword) {
-        dictionaryPage.enter_keywords(keyword);
+    public void enters_u(String word) {
+        loginPage.enter_user(word);
     }
-
+    public void enters_p(String word) {
+        loginPage.enter_pass(word);
+    }
     @Step
-    public void starts_search() {
-        dictionaryPage.lookup_terms();
+    public void starts_login() {
+        loginPage.lookup_terms();
     }
-
-    @Step
-    public void should_see_definition(String definition) {
-        assertThat(dictionaryPage.getDefinitions(), hasItem(containsString(definition)));
+    @Step	
+    public void selectVacation(){
+    	loginPage.selectVacation();
     }
-
+   
     @Step
     public void is_the_home_page() {
-        dictionaryPage.open();
+        loginPage.open();
     }
-
     @Step
-    public void looks_for(String term) {
-        enters(term);
-        starts_search();
+    public void should_see_definition(String definition) {
+        assertThat(loginPage.getMenu(), hasItem(containsString(definition)));
     }
+    public void login(String user, String password){
+    	enters_u(user);
+		enters_p(password);
+		starts_login();
+    }
+   
 }
