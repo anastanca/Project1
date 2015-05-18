@@ -22,57 +22,64 @@ public class NewVacationRequestPage extends PageObject {
  
 
     @FindBy(css="a[href*='menuItem=new-request']")
-    private WebElementFacade lookupButton;
+    private WebElementFacade vacationRequestButton;
 
     @FindBy(id="_evovacation_WAR_EvoVacationportlet_startDate")
-    private WebElementFacade lookupButton2;
+    private WebElementFacade startDateButton;
+    
+    @FindBy(name="startDate")
+    private WebElementFacade startDate;
     
     
     @FindBy(id="_evovacation_WAR_EvoVacationportlet_endDate")
-    private WebElementFacade lookupButton3;
+    private WebElementFacade endDateButton;
     
+    
+    @FindBy(name="endDate")
+    private WebElementFacade endDate;
     
     @FindBy(css=".vacationType")
-    private WebElementFacade lookupButton4;
+    private WebElementFacade vacationTypeMenu;
+    
+    
+    @FindBy(id="_evovacation_WAR_EvoVacationportlet_type_CO")
+    private WebElementFacade holidayButton;
     
     @FindBy(id="_evovacation_WAR_EvoVacationportlet_saveButton")
-    private WebElementFacade lookupButton5;
+    private WebElementFacade saveButton;
     
-    
-
+  
     public void lookup_terms() {
-        lookupButton.click();
+        vacationRequestButton.click();
     }
     
     public void lookup_terms2() {
-        lookupButton2.click();
+        startDateButton.click();
     }
     
+    public void clickOnStartDate() {
+        element(startDate).waitUntilVisible();
+        startDate.click();
+    }
     public void lookup_terms3() {
-        lookupButton3.click();
+        endDateButton.click();
     }
     
-    public void choose_vacation_type() {
-        lookupButton4.click();
-    }
-    
-    public void press_button_save() {
-        lookupButton5.click();
-    }
-    
-    
-
-    public List<String> vacationsType() {
-        WebElementFacade vacationList = find(By.tagName("ol"));
-        List<WebElement> results = vacationList.findElements(By.tagName("li"));
-        return convert(results, toStrings());
-    }
-
-    private Converter<WebElement, String> toStrings() {
-        return new Converter<WebElement, String>() {
-            public String convert(WebElement from) {
-                return from.getText();
-            }
-        };
-    }
+        public void clickOnEndDate() {
+            element(endDate).waitUntilVisible();
+            endDate.click();
+        
+        }
+        
+        public void choose_vacation_type() {
+            vacationTypeMenu.click();
+        }
+        
+        public void choose_holiday() {
+            vacationTypeMenu.click();
+        }
+        
+        public void press_button_save() {
+            saveButton.click();
+        }
 }
