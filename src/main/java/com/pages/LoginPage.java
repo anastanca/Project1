@@ -45,19 +45,6 @@ public class LoginPage extends PageObject {
     	
     }
     
-    public List<String> getMenu() {
-        WebElementFacade menuList = find(By.tagName("ul"));
-        List<WebElement> results = menuList.findElements(By.tagName("li"));
-        return convert(results, toStrings()); 
-    }
-        
-    private Converter<WebElement, String> toStrings() {
-    	return new Converter<WebElement, String>() {
-    		public String convert(WebElement from) {
-    			return from.getText();
-           }
-        };
+    
      }
     
-}
-
