@@ -16,7 +16,8 @@ import org.openqa.selenium.WebDriver;
 
 import com.google.protobuf.TextFormat.ParseException;
 import com.requirements.Application;
-import com.steps.EndUserSteps;
+import com.steps.LoginSteps;
+import com.steps.LoginSteps;
 import com.steps.NewVacationRequestSteps;
 
 @RunWith(ThucydidesRunner.class)
@@ -29,7 +30,7 @@ public class NewVacationRequestTest {
     public Pages pages;
 
     @Steps
-    public EndUserSteps endUser;
+    public LoginSteps loginSteps;
     
     @Steps
     public NewVacationRequestSteps newVacation;
@@ -41,38 +42,22 @@ public class NewVacationRequestTest {
 
     @Test
     public void create_your_vacation_request() throws ParseException, java.text.ParseException {
-        endUser.is_the_home_page();
-		endUser.starts_login();
-        endUser.login("iulia.chifor1", "evozon10");
-        endUser.selectVacation();
+        loginSteps.is_the_home_page();
+		loginSteps.starts_login();
+        loginSteps.login("iulia.chifor1", "evozon10");
+        loginSteps.selectVacation();
         newVacation.start_create_vacation();
         newVacation.click_start_date();
-        newVacation.selectStartDate(7, 3, 2015 );
+        newVacation.selectStartDate(9, 1, 2015 );
         newVacation.click_end_date();
-        newVacation.selectEndDate(9, 3, 2015);
+        newVacation.selectEndDate(9, 2, 2015);
         newVacation.vacation_type();
         newVacation.vacation_type_holiday();
         newVacation.save_your_vacation();
+        newVacation.message();
+        newVacation.should_see_message("Your request failed to complete.");
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-       
-        
-
     }
-
-   
-
-    @Pending @Test
-    public void searching_by_ambiguious_keyword_should_display_the_disambiguation_page() {
-    }
+    
 } 
