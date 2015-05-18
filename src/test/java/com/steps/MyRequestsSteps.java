@@ -19,10 +19,44 @@ public class MyRequestsSteps extends ScenarioSteps {
     	MyRequestsPage.selectMyRequests();
     }
    
-    @Step
+    @Step     
     public void is_the_home_page() {
         MyRequestsPage.open();
     }
+    
+    @Step
+    public void selectHoliday() {
+        MyRequestsPage.selectHoliday();
+    }
+    
+    @Step
+    public void selectWithoutPayment() {
+        MyRequestsPage.selectWithoutPayment();
+    }
+    
+    @Step
+    public void selectSpecialVacation() {
+        MyRequestsPage.selectSpecialVacation();
+    }
+    
+    @Step
+    public void selectSickLeave() {
+        MyRequestsPage.selectSickLeave();
+    }
+    
+    @Step
+    public void selectMaternityLeave() {
+        MyRequestsPage.selectMaternityLeave();
+    }
+    
+    @Step
+    public void selectApplyButton() {
+        MyRequestsPage.selectApplyButton();
+    } 
    	
+    @Step
+    public void verifyType(String definition) {
+        assertThat(MyRequestsPage.getType(), hasItem(containsString(definition)));
+    }
    
 }
