@@ -33,8 +33,15 @@ public class LoginTest {
     public void loginandselectVacationTest() {
     	loginSteps.is_the_home_page();
     	loginSteps.login("ana.stanca1","test1");
-    	loginSteps.selectVacation();	
-    	mainMenuSteps.clickNewVacation();
+    	loginSteps.selectVacation();		
     }
+    
+    @Test
+    public void login_and_select_VacationTest_inv() {
+    	loginSteps.is_the_home_page();
+    	loginSteps.login("ana.stanca","test1");
+    	loginSteps.selectVacation();		
+    }
+    
 
 } 

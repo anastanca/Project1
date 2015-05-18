@@ -13,16 +13,16 @@ public class LoginSteps extends ScenarioSteps {
     LoginPage loginPage;
 
     @Step
-    public void enters_u(String word) {
+    public void enters_user(String word) {
         loginPage.enter_user(word);
     }
     @Step
-    public void enters_p(String word) {
-        loginPage.enter_pass(word);
+    public void enters_password(String word) {
+        loginPage.enter_password(word);
     }
     @Step
     public void starts_login() {
-        loginPage.lookup_terms();
+        loginPage.signIn();
     }
     @Step	
     public void selectVacation(){
@@ -35,8 +35,8 @@ public class LoginSteps extends ScenarioSteps {
     }
     @Step
     public void login(String user, String password){
-    	enters_u(user);
-		enters_p(password);
+    	enters_user(user);
+		enters_password(password);
 		starts_login();
     }
    

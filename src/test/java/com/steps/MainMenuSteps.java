@@ -21,12 +21,17 @@ public class MainMenuSteps extends ScenarioSteps {
 	
 	@Step
 	public void clickMyFreeDays(){
-		mainMenuPage.my_request_click();
+		mainMenuPage.free_days_click();
 	}
 	
 	@Step
 	public void clickMyFreeDaysHistory(){
 		mainMenuPage.free_days_hiostory_click();
 	}
+	
+	@Step
+    public void is_the_home_page() {
+        mainMenuPage.open();
+    }
 
 }

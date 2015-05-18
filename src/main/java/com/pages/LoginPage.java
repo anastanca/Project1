@@ -20,7 +20,7 @@ public class LoginPage extends PageObject {
     private WebElementFacade user_id;
 
     @FindBy(id="_58_password")
-    private WebElementFacade pass;
+    private WebElementFacade password;
    
     @FindBy(css="[type='submit']")
     private WebElementFacade signInButtom;
@@ -29,15 +29,15 @@ public class LoginPage extends PageObject {
     private WebElementFacade Vacations;
 
   
-  public void lookup_terms() {
+  public void signIn() {
 	  signInButtom.click();
     }
     
     public void enter_user(String user) {
         user_id.type(user);
     }
-    public void enter_pass(String user) {
-        pass.type(user);
+    public void enter_password(String user) {
+        password.type(user);
     }
     
     public void selectVacation(){
